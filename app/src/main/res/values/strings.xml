@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GitHub Repositories</string>
+    <string name="repository_name">Repository name</string>
+    <string name="description">teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste</string>
+    <string name="fork">Fork</string>
+    <string name="stars">Stars</string>
+    <string name="watchers">watchers</string>
+    <string name="username">username</string>
+    <string name="complete_name">Nome Sobrenome</string>
+    <string name="pull_request_title">Pull request title</string>
+    <string name="search">Digite o nome do reposiorio</string>
+</resources>
