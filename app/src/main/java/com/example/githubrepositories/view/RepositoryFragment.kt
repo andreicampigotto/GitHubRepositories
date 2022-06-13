@@ -28,11 +28,9 @@ class RepositoryFragment() : Fragment(R.layout.repositories_fragment) {
         (requireActivity() as MainActivity).replaceFrag(PullFragment(it))
     }
 
-
-
     private val observerRepository =
         Observer<List<Repository>> {
-            repositoryAdapter.submitList(it)
+            repositoryAdapter.update(it)
         }
 
     private val observerPage = Observer<Int> {

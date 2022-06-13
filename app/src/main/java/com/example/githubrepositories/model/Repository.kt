@@ -24,5 +24,6 @@ data class Repository(
 )
 
 data class RepositoryResponse(
+    @SerializedName("items")
     val items: List<Repository>
 )

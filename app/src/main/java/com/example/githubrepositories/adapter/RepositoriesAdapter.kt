@@ -3,7 +3,6 @@ package com.example.githubrepositories.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.githubrepositories.R
@@ -11,7 +10,7 @@ import com.example.githubrepositories.databinding.ItemRepositoryBinding
 import com.example.githubrepositories.model.Repository
 
 class RepositoriesAdapter(val onTap: (Repository) -> Unit) :
-    ListAdapter<Repository, RepositoryViewHolder>(RepositoriesDiffCallBack()) {
+    RecyclerView.Adapter<RepositoryViewHolder>() {
 
     private var repositories = mutableListOf<Repository>()
 
@@ -30,6 +29,14 @@ class RepositoriesAdapter(val onTap: (Repository) -> Unit) :
                 )
             }
         }
+    }
+
+    override fun getItemCount(): Int = repositories.size
+
+    fun update(newList: List<Repository>) {
+        repositories.clear()
+        repositories.addAll(newList)
+        notifyDataSetChanged()
     }
 }
 
