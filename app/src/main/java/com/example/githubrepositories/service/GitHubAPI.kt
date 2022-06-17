@@ -13,14 +13,14 @@ interface GitHubAPI {
     suspend fun getUsers(): Response<Owner>
 
     @GET("/search/repositories")
-    fun getRepositories(
+    suspend fun getRepositories(
         @Query("q") q: String,
         @Query("sort") sort: String,
         @Query("page") page: Int
     ): Response<RepositoryResponse>
 
     @GET("/repos/{fullName}/pulls")
-    fun getPullRequestsList(
+    suspend fun getPullRequestsList(
         @Query("fullName") fullName: String
     ): Response<PullResponse>
 }
