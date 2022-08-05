@@ -2,8 +2,6 @@ package com.example.githubrepositories.view
 
 import android.content.Context
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
@@ -30,7 +28,9 @@ class RepositoryFragment() : Fragment(R.layout.repositories_fragment) {
 
     private val observerRepository =
         Observer<List<Repository>> {
-            repositoryAdapter.update(it)
+            repositoryAdapter.update(it.toMutableList())
+            binding.progressBar.visibility = View.GONE
+            binding.repositoryRecyclerView.visibility = View.VISIBLE
         }
 
     private val observerPage = Observer<Int> {
@@ -47,6 +47,7 @@ class RepositoryFragment() : Fragment(R.layout.repositories_fragment) {
         viewModel.page.observe(viewLifecycleOwner, observerPage)
 
         setupRecyclerView()
+        viewModel.getRepositoryList(1)
         //searchRepository()
     }
 

@@ -1,6 +1,7 @@
 package com.example.githubrepositories.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Pull(
     @SerializedName("title")
@@ -9,10 +10,12 @@ data class Pull(
     val body: String,
     @SerializedName("created_at")
     val created_at: String,
-    @SerializedName("created_at")
-    val owner: Owner
-)
+    @SerializedName("user")
+    val user: User
+): Serializable {
+    fun formattedDate(): String {
+        val dateWithoutHours = created_at.split("T")[0].split("-")
 
-data class PullResponse(
-    val items: List<Pull>
-)
+        return "${dateWithoutHours[2]}/${dateWithoutHours[1]}/${dateWithoutHours[0]}"
+    }
+}

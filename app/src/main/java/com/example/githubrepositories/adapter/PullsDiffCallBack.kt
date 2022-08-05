@@ -9,6 +9,6 @@ class PullsDiffCallBack: DiffUtil.ItemCallback<Pull>() {
     }
 
     override fun areContentsTheSame(oldItem: Pull, newItem: Pull): Boolean {
-        return oldItem == newItem
+        return oldItem.title == newItem.title
     }
 }

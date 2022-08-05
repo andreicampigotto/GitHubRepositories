@@ -12,12 +12,11 @@ class PullsRepository @Inject constructor(
 ) {
 
     suspend fun getPulls(fullName: String): List<Pull>? {
+
         val resultAPI = withContext(Dispatchers.Default) {
-            val response = service.getPullRequestsList(
-                fullName = fullName
-            )
+            val response = service.getPullRequestsList(fullName = fullName)
             val processResponse = processData(response)
-            processResponse?.items
+            processResponse
         }
         return resultAPI
     }

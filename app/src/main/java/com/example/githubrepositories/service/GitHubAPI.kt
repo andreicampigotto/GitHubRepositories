@@ -1,26 +1,26 @@
 package com.example.githubrepositories.service
 
-import com.example.githubrepositories.model.Owner
-import com.example.githubrepositories.model.PullResponse
+import com.example.githubrepositories.model.Pull
 import com.example.githubrepositories.model.RepositoryResponse
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface GitHubAPI {
 
-    @GET("/users")
-    suspend fun getUsers(): Response<Owner>
-
     @GET("/search/repositories")
     suspend fun getRepositories(
         @Query("q") q: String,
-        @Query("sort") sort: String,
-        @Query("page") page: Int
+        @Query("sort") sort: String = "stars",
+        @Query("page") page: Int = 1
     ): Response<RepositoryResponse>
 
     @GET("/repos/{fullName}/pulls")
     suspend fun getPullRequestsList(
-        @Query("fullName") fullName: String
-    ): Response<PullResponse>
+        @Path(
+            "fullName",
+            encoded = true
+        ) fullName: String
+    ): Response<List<Pull>>
 }

@@ -10,7 +10,7 @@ import com.example.githubrepositories.R
 import com.example.githubrepositories.databinding.ItemPullBinding
 import com.example.githubrepositories.model.Pull
 
-class PullsAdapter:
+class PullsAdapter() :
     ListAdapter<Pull, PullsViewHolder>(PullsDiffCallBack()) {
 
     private val pulls = mutableListOf<Pull>()
@@ -22,14 +22,14 @@ class PullsAdapter:
     }
 
     override fun onBindViewHolder(holder: PullsViewHolder, position: Int) {
-        getItem(position).let {
-            holder.binding(it)
+        getItem(position).let { pull ->
+            holder.bind(pull)
         }
     }
 
-    fun update(newList: List<Pull>) {
-        pulls.clear()
+    fun update(newList: MutableList<Pull>) {
         pulls.addAll(newList)
+        submitList(newList)
         notifyDataSetChanged()
     }
 }
@@ -38,14 +38,15 @@ class PullsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private val binding: ItemPullBinding = ItemPullBinding.bind(itemView)
 
-    fun binding(pull: Pull) {
+    fun bind(pull: Pull) {
         binding.tvPullTitle.text = pull.title
         binding.tvPullDescription.text = pull.body
-        binding.tvUsernamePull.text = pull.owner.login
+        binding.tvOwner.text = pull.user.username
+        binding.tvCreatedAt.text = pull.formattedDate()
 
-        pull.owner.let {
-            Glide.with(itemView.context).load(it.avatar_url)
-                .into(binding.imageView)
+        pull.user.let {
+            Glide.with(itemView.context).load(it.avatarURL)
+                .into(binding.ivUser)
         }
     }
 }

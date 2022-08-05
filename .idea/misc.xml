@@ -3,11 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/item_pull.xml" value="0.22916666666666666" />
-        <entry key="app/src/main/res/layout/item_repository.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_developer_mode_24.xml" value="0.141" />
+        <entry key="app/src/main/res/layout/item_pull.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/item_repository.xml" value="0.4550882975260417" />
         <entry key="app/src/main/res/layout/main_activity.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/pulls_fragment.xml" value="0.21510416666666668" />
-        <entry key="app/src/main/res/layout/repositories_fragment.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/repositories_fragment.xml" value="0.36908517350157727" />
       </map>
     </option>
   </component>

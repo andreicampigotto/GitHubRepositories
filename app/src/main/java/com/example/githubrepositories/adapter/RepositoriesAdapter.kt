@@ -21,11 +21,11 @@ class RepositoriesAdapter(val onTap: (Repository) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
-        repositories[position].apply {
-            holder.bind(this)
+        repositories[position].let { repository ->
+            holder.bind(repository)
             holder.itemView.setOnClickListener {
                 onTap(
-                    this
+                    repository
                 )
             }
         }
@@ -33,8 +33,7 @@ class RepositoriesAdapter(val onTap: (Repository) -> Unit) :
 
     override fun getItemCount(): Int = repositories.size
 
-    fun update(newList: List<Repository>) {
-        repositories.clear()
+    fun update(newList: MutableList<Repository>) {
         repositories.addAll(newList)
         notifyDataSetChanged()
     }
@@ -51,11 +50,10 @@ class RepositoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         binding.tvStarsRepository.text = repository.stargazers_count.toString()
         binding.tvViewsRepositoryWatchers.text = repository.watchers_count.toString()
         binding.tvUsernameRepository.text = repository.owner.login
-        binding.tvNameLastnameRepository.text = repository.owner.html_url
 
         repository.owner.let {
             Glide.with(itemView.context).load(it.avatar_url)
-                .into(binding.imageView)
+                .into(binding.ivRepository)
         }
     }
 }

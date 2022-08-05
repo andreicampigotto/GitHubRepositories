@@ -1,6 +1,7 @@
 package com.example.githubrepositories.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Repository(
     @SerializedName("id")
@@ -21,7 +22,7 @@ data class Repository(
     val watchers_count: Long,
     @SerializedName("forks_count")
     val forks_count: Long,
-)
+): Serializable
 
 data class RepositoryResponse(
     val items: List<Repository>
