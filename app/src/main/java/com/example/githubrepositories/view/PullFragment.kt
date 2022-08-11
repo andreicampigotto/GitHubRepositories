@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -17,9 +18,9 @@ import com.example.githubrepositories.viewModel.PullViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PullFragment(val repository: Repository) : Fragment(R.layout.pulls_fragment) {
+class PullFragment() : Fragment(R.layout.pulls_fragment) {
 
-
+    private val args by navArgs<PullFragmentArgs>()
     private lateinit var viewModel: PullViewModel
     private lateinit var binding: PullsFragmentBinding
     private var adapter = PullsAdapter()
@@ -43,14 +44,14 @@ class PullFragment(val repository: Repository) : Fragment(R.layout.pulls_fragmen
         binding.pullRecyclerView.adapter = adapter
 
         viewModel.pulls.observe(viewLifecycleOwner, observerPull)
-        viewModel.getPullsList(repository.full_name)
+        viewModel.getPullsList(args.repository!!.full_name)
 
-        repository?.let {
+        args.repository?.let {
             binding.repositoryName.text = it.full_name
             binding.repositoryDescriptionTextView.text = it.description
         }
 
-        repository.owner?.let {
+        args!!.repository!!.owner?.let {
             Glide.with(this).load(it.avatar_url)
                 .into(binding.ivRepository)
         }

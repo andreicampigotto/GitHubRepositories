@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/repositories"
+    app:startDestination="@id/repositoryFragment">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.githubrepositories.view.MainActivity"
+        android:label="main_activity"
+        tools:layout="@layout/main_activity" />
+    <fragment
+        android:id="@+id/repositoryFragment"
+        android:name="com.example.githubrepositories.view.RepositoryFragment"
+        android:label="RepositoryFragment"
+        tools:layout="@layout/repositories_fragment">
+        <action
+            android:id="@+id/action_repositoryFragment_to_pullFragment"
+            app:destination="@id/pullFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pullFragment"
+        android:name="com.example.githubrepositories.view.PullFragment"
+        android:label="PullFragment"
+        tools:layout="@layout/pulls_fragment">
+        <argument
+            android:name="repository"
+            android:defaultValue="@null"
+            app:argType="com.example.githubrepositories.model.Repository"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>

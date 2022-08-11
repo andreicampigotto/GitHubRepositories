@@ -7,6 +7,9 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavArgs
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubrepositories.R
@@ -23,7 +26,7 @@ class RepositoryFragment() : Fragment(R.layout.repositories_fragment) {
     private lateinit var binding: RepositoriesFragmentBinding
 
     private val repositoryAdapter = RepositoriesAdapter {
-        (requireActivity() as MainActivity).replaceFrag(PullFragment(it))
+        findNavController().navigate(RepositoryFragmentDirections.actionRepositoryFragmentToPullFragment(it))
     }
 
     private val observerRepository =

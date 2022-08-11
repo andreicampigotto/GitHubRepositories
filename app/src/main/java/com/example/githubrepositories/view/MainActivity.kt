@@ -1,8 +1,8 @@
 package com.example.githubrepositories.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.example.githubrepositories.R
 import com.example.githubrepositories.databinding.MainActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,15 +16,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = MainActivityBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
-        replaceFrag(RepositoryFragment())
+
+        setSupportActionBar(binding.topAppBar)
     }
 
-    override fun onBackPressed() {}
-
-    fun replaceFrag(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container, fragment).commitNow()
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }
