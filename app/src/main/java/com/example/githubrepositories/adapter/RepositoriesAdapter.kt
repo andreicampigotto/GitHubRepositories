@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.githubrepositories.R
 import com.example.githubrepositories.databinding.ItemRepositoryBinding
 import com.example.githubrepositories.model.Repository
+import com.example.githubrepositories.view.RepositoryFragmentDirections
 
 class RepositoriesAdapter(val onTap: (Repository) -> Unit) :
     RecyclerView.Adapter<RepositoryViewHolder>() {
@@ -26,9 +28,7 @@ class RepositoriesAdapter(val onTap: (Repository) -> Unit) :
         repositories[position].let { repository ->
             holder.bind(repository)
             holder.itemView.setOnClickListener {
-                onTap(
-                    repository
-                )
+                it.findNavController().navigate(RepositoryFragmentDirections.actionRepositoryFragmentToPullFragment(repository))
             }
         }
     }

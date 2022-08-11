@@ -46,12 +46,14 @@ class PullFragment() : Fragment(R.layout.pulls_fragment) {
         viewModel.pulls.observe(viewLifecycleOwner, observerPull)
         viewModel.getPullsList(args.repository!!.full_name)
 
+
+
         args.repository?.let {
             binding.repositoryName.text = it.full_name
             binding.repositoryDescriptionTextView.text = it.description
         }
 
-        args!!.repository!!.owner?.let {
+        args.repository?.owner?.let {
             Glide.with(this).load(it.avatar_url)
                 .into(binding.ivRepository)
         }
