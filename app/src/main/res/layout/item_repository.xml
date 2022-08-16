@@ -121,7 +121,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:layout_gravity="start|center"
                 android:fontFamily="sans-serif-black"
                 android:gravity="start|center"
                 android:padding="4dp"
