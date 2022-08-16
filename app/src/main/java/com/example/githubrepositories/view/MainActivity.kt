@@ -1,8 +1,13 @@
 package com.example.githubrepositories.view
 
 import android.os.Bundle
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.example.githubrepositories.R
 import com.example.githubrepositories.databinding.MainActivityBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,11 +23,12 @@ class MainActivity : AppCompatActivity() {
         binding = MainActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.topAppBar)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp() || super.onSupportNavigateUp()
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        val appBarConfiguration = AppBarConfiguration(
+            topLevelDestinationIds = setOf(),
+            fallbackOnNavigateUpListener = ::onSupportNavigateUp
+        )
+        binding.topAppBar.setupWithNavController(navController, appBarConfiguration)
     }
 }
