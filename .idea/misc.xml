@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_baseline_developer_mode_24.xml" value="0.141" />
+        <entry key="app/src/main/res/drawable/transparence.xml" value="0.141" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.18854166666666666" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.6556473829201102" />
         <entry key="app/src/main/res/layout/item_pull.xml" value="0.375" />
