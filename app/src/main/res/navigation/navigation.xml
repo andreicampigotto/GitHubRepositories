@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/repositoryFragment"
         android:name="com.example.githubrepositories.view.RepositoryFragment"
-        android:label="RepositoryFragment"
+        android:label="Repositorios"
         tools:layout="@layout/repositories_fragment">
         <action
             android:id="@+id/action_repositoryFragment_to_pullFragment"
@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/pullFragment"
         android:name="com.example.githubrepositories.view.PullFragment"
-        android:label="PullFragment"
+        android:label="Pulls"
         tools:layout="@layout/pulls_fragment">
         <argument
             android:name="repository"
