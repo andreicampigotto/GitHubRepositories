@@ -10,9 +10,7 @@ import javax.inject.Inject
 class RepositoriesRepository @Inject constructor(
     private val service: GitHubAPI,
 ) {
-
     suspend fun getRepositories(language: String, sort: String, page: Int): List<Repository>? {
-
         val resultAPI = withContext(Dispatchers.Default) {
             val response = service.getRepositories(
                 q = "language:$language",

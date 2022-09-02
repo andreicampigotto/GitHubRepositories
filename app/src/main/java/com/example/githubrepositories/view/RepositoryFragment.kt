@@ -26,7 +26,7 @@ class RepositoryFragment() : Fragment(R.layout.repositories_fragment) {
     private lateinit var viewModel: RepositoryViewModel
     private lateinit var binding: RepositoriesFragmentBinding
 
-    private val repositoryAdapter = RepositoriesAdapter {}
+    private val repositoryAdapter=RepositoriesAdapter{}
 
     private val observerRepository =
         Observer<List<Repository>> {
