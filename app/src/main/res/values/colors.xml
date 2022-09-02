@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FBC215</color>
     <color name="orange">#EC9439</color>
+    <color name="bg_default">#392370</color>
+    <color name="primary_default">#7F57E4</color>
+    <color name="primary_variant_default">#3F287A</color>
 </resources>

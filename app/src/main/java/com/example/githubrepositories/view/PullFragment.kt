@@ -5,17 +5,14 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.githubrepositories.R
 import com.example.githubrepositories.adapter.PullsAdapter
-import com.example.githubrepositories.databinding.MainActivityBinding
 import com.example.githubrepositories.databinding.PullsFragmentBinding
 import com.example.githubrepositories.model.Pull
-import com.example.githubrepositories.model.Repository
 import com.example.githubrepositories.viewModel.PullViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

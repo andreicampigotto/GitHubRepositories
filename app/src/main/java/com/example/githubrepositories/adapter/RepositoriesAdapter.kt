@@ -13,7 +13,7 @@ import com.example.githubrepositories.databinding.ItemRepositoryBinding
 import com.example.githubrepositories.model.Repository
 import com.example.githubrepositories.view.RepositoryFragmentDirections
 
-class RepositoriesAdapter(val onTap: (Repository) -> Unit) :
+class RepositoriesAdapter() :
     RecyclerView.Adapter<RepositoryViewHolder>() {
 
     private var repositories = mutableListOf<Repository>()
