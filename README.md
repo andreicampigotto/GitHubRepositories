@@ -1,6 +1,6 @@
 # GitHubRepositories
 
-##This repository fetch repositories from Github and open pull details
+## This repository fetch repositories from Github and open pull details
 
 ## Languages
 - [English](https://github.com/andreicampigotto/GitHubRepositories/edit/master/README.md)
