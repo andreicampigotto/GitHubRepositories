@@ -78,7 +78,7 @@
                     android:padding="4dp"
                     android:text="@string/username"
                     android:textAlignment="center"
-                    android:textColor="@color/orange"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@id/ivRepository"
                     app:layout_constraintEnd_toEndOf="@id/ivRepository"
@@ -110,10 +110,11 @@
                 android:padding="4dp"
                 android:text="@string/fork"
                 android:textAlignment="gravity"
-                android:textColor="@color/yellow"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="italic"
                 app:drawableStartCompat="@drawable/ic_baseline_developer_mode_24"
+                app:drawableTint="@color/yellow"
                 tools:ignore="MissingConstraints" />
 
             <TextView
@@ -127,10 +128,11 @@
                 android:padding="4dp"
                 android:text="@string/stars"
                 android:textAlignment="gravity"
-                android:textColor="@color/yellow"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="italic"
-                app:drawableStartCompat="@drawable/ic_baseline_star_border_24" />
+                app:drawableStartCompat="@drawable/ic_baseline_star_border_24"
+                app:drawableTint="@color/yellow"/>
 
             <TextView
                 android:id="@+id/tvViewsRepositoryWatchers"
@@ -143,10 +145,11 @@
                 android:padding="4dp"
                 android:text="@string/watchers"
                 android:textAlignment="gravity"
-                android:textColor="@color/yellow"
+                android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="italic"
-                app:drawableStartCompat="@drawable/ic_baseline_visibility_24" />
+                app:drawableStartCompat="@drawable/ic_baseline_visibility_24"
+                app:drawableTint="@color/yellow"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.constraintlayout.widget.ConstraintLayout>

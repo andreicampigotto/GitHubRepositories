@@ -8,5 +8,5 @@
     <string name="username">username</string>
     <string name="complete_name">Nome Sobrenome</string>
     <string name="pull_request_title">Pull request title</string>
-    <string name="search">Digite o nome do reposiorio</string>
+<!--    <string name="search">Search </string>-->
 </resources>
